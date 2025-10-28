@@ -33,3 +33,21 @@ var logNumber = function (i) {
 var json = '{"x":10,"y":20}';
 var coordinates = JSON.parse(json);
 console.log(coordinates);
+//2) When we declare a variable on one line, than initialise it later.
+var words = ["red", "green", "blue"];
+var foundWord; // TypeScript infers this as boolean from the assignment below
+for (var i = 0; i < words.length; i++) {
+    if (words[i] === "green") {
+        foundWord = true;
+    }
+}
+// To see the "any" type issue, try this:
+var foundWord2; // This would be 'any' but no error until...
+console.log(foundWord2); // NOW you'll see an error: Variable 'foundWord2' implicitly has an 'any' type
+// The correct annotation for the original example:
+var foundWord3;
+for (var i = 0; i < words.length; i++) {
+    if (words[i] === "green") {
+        foundWord3 = true;
+    }
+}
