@@ -22,3 +22,7 @@ var point = {
     x: 10,
     y: 20,
 };
+// Function
+var logNumber = function (i) {
+    console.log(i);
+};
