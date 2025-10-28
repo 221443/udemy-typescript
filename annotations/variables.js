@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// Here are annotations used too heavily, when i have all the thing on one line
+// the annotation is not needed. Check the code below for rules when to use annotations.
 var apples = 5;
 var speed = "fast";
 var nothingMuch = null;
@@ -26,3 +28,8 @@ var point = {
 var logNumber = function (i) {
     console.log(i);
 };
+//When to use annotations?
+//1) Function that return the "any" type.
+var json = '{"x":10,"y":20}';
+var coordinates = JSON.parse(json);
+console.log(coordinates);

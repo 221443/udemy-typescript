@@ -1,3 +1,5 @@
+// Here are annotations used too heavily, when i have all the thing on one line
+// the annotation is not needed. Check the code below for rules when to use annotations.
 const apples: number = 5;
 let speed: string = "fast";
 
@@ -23,8 +25,16 @@ let point: { x: number; y: number } = {
 };
 
 // Function
-const logNumber: (i:number) => void = (i: number) => {
+const logNumber: (i: number) => void = (i: number) => {
   console.log(i);
 };
+
+//When to use annotations?
+//1) Function that return the "any" type.
+const json = '{"x":10,"y":20}';
+const coordinates = JSON.parse(json);
+console.log(coordinates);
+
+//2)
 
 export {};
