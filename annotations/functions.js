@@ -32,3 +32,23 @@ Key Differences:
  - Type aliases and interfaces allow you to reuse function signatures across your codebase
  - Implicit return (option 2) works only for single-expression functions
 */
+function divide(a, b) {
+    return a / b;
+}
+function multiply(a, b) {
+    return a * b;
+}
+var logger = function (message) {
+    console.log(message);
+};
+// Not used often. "never" tells us that the function will never reach the return statement
+var throwError = function (message) {
+    throw new Error(message);
+};
+// If it is possible that the function will return something, the retrun type should written
+var throwErrorWithRetrunTypeString = function (message) {
+    if (!message) {
+        throw new Error(message);
+    }
+    return message;
+};
