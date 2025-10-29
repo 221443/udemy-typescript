@@ -77,3 +77,24 @@ const throwErrorWithRetrunTypeString = (message: string): string => {
   }
   return message;
 };
+
+// Destructuring with Annotations
+
+const todaysWeather = {
+  date: new Date(),
+  weather: "sunny",
+};
+
+const logWeather = (todaysWeather: { date: Date; weather: string }): void => {
+  console.log(`Today's weather on ${todaysWeather.date}: ${todaysWeather.weather}`);
+};
+
+const logWeatherDestructured = ({ date, weather }: { date: Date; weather: string }): void => {
+  console.log(`Today's weather on ${date}: ${weather}`);
+};
+
+logWeather(todaysWeather);
+logWeatherDestructured(todaysWeather);
+
+
+export {};

@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // Arrow Function
 var addArrowFunction = function (a, b) {
     return a + b;
@@ -52,3 +54,17 @@ var throwErrorWithRetrunTypeString = function (message) {
     }
     return message;
 };
+// Destructuring with Annotations
+var todaysWeather = {
+    date: new Date(),
+    weather: "sunny",
+};
+var logWeather = function (todaysWeather) {
+    console.log("Today's weather on ".concat(todaysWeather.date, ": ").concat(todaysWeather.weather));
+};
+var logWeatherDestructured = function (_a) {
+    var date = _a.date, weather = _a.weather;
+    console.log("Today's weather on ".concat(date, ": ").concat(weather));
+};
+logWeather(todaysWeather);
+logWeatherDestructured(todaysWeather);
