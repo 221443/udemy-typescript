@@ -17,40 +17,57 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var Vehicle = /** @class */ (function () {
     function Vehicle() {
+        this.color = "red";
     }
+    Vehicle.prototype.getColor = function () {
+        return this.color;
+    };
+    Vehicle.prototype.printColor = function () {
+        console.log("This vehicle's color is: " + this.getColor());
+    };
     Vehicle.prototype.drive = function () {
         console.log("Driving...");
     };
     Vehicle.prototype.honk = function () {
         console.log("Beep beep!");
     };
-    Vehicle.prototype.honkProtected = function () {
-        console.log("Beep beep! (from protected method)");
+    Vehicle.prototype.honkPrivate = function () {
+        console.log("Beep beep! (from private method)");
     };
-    Vehicle.prototype.honkProtectedCaller = function () {
-        this.honkProtected();
+    Vehicle.prototype.honkPrivateCaller = function () {
+        this.honkPrivate();
     };
     return Vehicle;
 }());
 var Car = /** @class */ (function (_super) {
     __extends(Car, _super);
-    function Car(wheels) {
+    function Car(color, wheels) {
         var _this = _super.call(this) || this;
+        _this.color = color;
         _this.wheels = wheels;
         return _this;
     }
     Car.prototype.getWheels = function () {
         return this.wheels;
     };
+    Car.prototype.honkProtected = function () {
+        console.log("Car honk (protected)!");
+    };
+    Car.prototype.honkProtectedCaller = function () {
+        this.honkProtected();
+    };
     return Car;
 }(Vehicle));
 var vehicle = new Vehicle();
+vehicle.printColor();
 vehicle.drive();
 vehicle.honk();
 //vehicle.honkProtected(); // Error: Property 'honkProtected' is protected and only accessible within class 'Vehicle' and its subclasses.
-vehicle.honkProtectedCaller(); // This works because it's called from a public method within the class.
-var car = new Car(4);
+vehicle.honkPrivateCaller(); // This works because it's called from a public method within the class.
+var car = new Car("blue", 4);
+car.printColor();
 car.drive();
 car.honk();
-car.honkProtectedCaller();
+car.honkPrivateCaller();
+car.honkProtectedCaller(); // This works because it's called from a public method within the class.
 console.log("Car wheels: ".concat(car.getWheels()));
