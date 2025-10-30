@@ -21,10 +21,10 @@ const myCar = carMakers.pop();
 // Help with 'map'
 carMakers.map((car: string): string => {
   return car.toUpperCase();
-}
-);
+});
 
 // Flexible types
+const importantDatesInferred = [, new Date(), "2030-10-10"];
 const importantDates: (Date | string)[] = [];
 importantDates.push("2030-10-10");
 importantDates.push(new Date());
