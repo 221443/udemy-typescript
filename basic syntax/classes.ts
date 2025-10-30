@@ -29,7 +29,7 @@ class Car extends Vehicle {
   // public, private, protected - same in java
   private wheels: number;
   constructor(color: string, wheels: number) {
-    super();
+    super(); // Call the parent class constructor, must be before using 'this', is mandatrory for derived classes
     //this.color = color; // Error: Property 'color' is private and only accessible within class 'Vehicle'.
     this.setColor(color); // Use public setter to set color
     this.wheels = wheels;
