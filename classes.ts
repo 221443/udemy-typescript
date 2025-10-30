@@ -5,11 +5,11 @@ class Vehicle {
     public honk(): void {
         console.log("Beep beep!");
     }   
-    protected honkProtected(): void {
-        console.log("Beep beep! (from protected method)");
+    private honkPrivate(): void {
+        console.log("Beep beep! (from private method)");
     }
-    public honkProtectedCaller(): void {
-        this.honkProtected();
+    public honkPrivateCaller(): void {
+        this.honkPrivate();
     }
 }
 
@@ -23,18 +23,27 @@ class Car extends Vehicle {
     public getWheels(): number {
         return this.wheels;
     }
+
+    protected honkProtected(): void {
+        console.log("Car honk (protected)!");
+    }
+
+    public honkProtectedCaller(): void {
+        this.honkProtected();
+    }
 }
 
 const vehicle = new Vehicle();
 vehicle.drive();
 vehicle.honk();
 //vehicle.honkProtected(); // Error: Property 'honkProtected' is protected and only accessible within class 'Vehicle' and its subclasses.
-vehicle.honkProtectedCaller(); // This works because it's called from a public method within the class.
+vehicle.honkPrivateCaller(); // This works because it's called from a public method within the class.
 
 const car = new Car(4);
 car.drive();
 car.honk();
-car.honkProtectedCaller();
+car.honkPrivateCaller();
+car.honkProtectedCaller(); // This works because it's called from a public method within the class.
 console.log(`Car wheels: ${car.getWheels()}`);
 
 export {};
