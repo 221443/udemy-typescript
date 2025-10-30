@@ -22,6 +22,9 @@ var Vehicle = /** @class */ (function () {
     Vehicle.prototype.getColor = function () {
         return this.color;
     };
+    Vehicle.prototype.setColor = function (color) {
+        this.color = color;
+    };
     Vehicle.prototype.printColor = function () {
         console.log("This vehicle's color is: " + this.getColor());
     };
@@ -43,7 +46,8 @@ var Car = /** @class */ (function (_super) {
     __extends(Car, _super);
     function Car(color, wheels) {
         var _this = _super.call(this) || this;
-        _this.color = color;
+        //this.color = color; // Error: Property 'color' is private and only accessible within class 'Vehicle'.
+        _this.setColor(color); // Use public setter to set color
         _this.wheels = wheels;
         return _this;
     }

@@ -1,8 +1,13 @@
 class Vehicle {
-  color: string = "red";
+  private color: string = "red";
   public getColor(): string {
     return this.color;
   }
+
+  public setColor(color: string): void {
+    this.color = color;
+  }
+
   public printColor(): void {
     console.log("This vehicle's color is: " + this.getColor());
   }
@@ -25,7 +30,8 @@ class Car extends Vehicle {
   private wheels: number;
   constructor(color: string, wheels: number) {
     super();
-    this.color = color;
+    //this.color = color; // Error: Property 'color' is private and only accessible within class 'Vehicle'.
+    this.setColor(color); // Use public setter to set color
     this.wheels = wheels;
   }
   public getWheels(): number {
