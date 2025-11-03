@@ -12,9 +12,11 @@ const company = new Company();
 console.log(company);
 
 const user = new User();
+const user2 = new User();
 console.log(user);
 
 const customMap = new CustomMap("map");
 
 customMap.addMarker(user);
+customMap.addMarker(user2);
 customMap.addMarker(company);

@@ -15,4 +15,7 @@ export class Company {
       longitude: faker.location.longitude(),
     };
   }
+  getInfo(): string {
+    return `Company Name: ${this.companyName}<br>Catch Phrase: ${this.catchPhrase}`;
+  }
 }

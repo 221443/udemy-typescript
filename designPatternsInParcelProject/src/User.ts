@@ -16,4 +16,7 @@ export class User {
       longitude: faker.location.longitude(),
     };
   }
+  getInfo(): string {
+    return `User Name: ${this.name}`;
+  }
 }

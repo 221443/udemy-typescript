@@ -7,8 +7,8 @@ interface Mappable {
     latitude: number;
     longitude: number;
   };
+  getInfo(): string;
 }
-
 
 /**
  * CustomMap class for managing Google Maps instances.
@@ -39,12 +39,19 @@ export class CustomMap {
   }
 
   addMarker(locationEntity: Mappable): void {
-    new google.maps.Marker({
-        map: this.googleMap,
-        position:{
-            lat: locationEntity.location.latitude,
-            lng: locationEntity.location.longitude
-        }
+    const marker = new google.maps.Marker({
+      map: this.googleMap,
+      position: {
+        lat: locationEntity.location.latitude,
+        lng: locationEntity.location.longitude,
+      },
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: locationEntity.getInfo(),
+    });
+    marker.addListener("click", () => {
+      infoWindow.open(this.googleMap, marker);
     });
   }
 }
