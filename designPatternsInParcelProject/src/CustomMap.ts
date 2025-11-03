@@ -29,22 +29,12 @@ export class CustomMap {
     });
   }
 
-  addUserMarker(user: User): void {
+  addMarker(locationEntity: User | Company): void {
     new google.maps.Marker({
         map: this.googleMap,
         position:{
-            lat: user.location.latitude,
-            lng: user.location.longitude
-        }
-    });
-  }
-
-  addCompanyMarker(company: Company): void{
-    new google.maps.Marker({
-        map: this.googleMap,
-        position:{
-            lat: company.location.latitude,
-            lng: company.location.longitude
+            lat: locationEntity.location.latitude,
+            lng: locationEntity.location.longitude
         }
     });
   }
