@@ -47,10 +47,10 @@ export class CustomMap {
       },
     });
 
-    const infoWindow = new google.maps.InfoWindow({
-      content: locationEntity.getInfo(),
-    });
     marker.addListener("click", () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: locationEntity.getInfo(),
+      });
       infoWindow.open(this.googleMap, marker);
     });
   }
