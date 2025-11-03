@@ -1,5 +1,14 @@
-import { User } from "./User";
-import { Company } from "./Company";
+/**
+ * Mappable interface to be implemented by any class
+ * that can be represented on the map.
+ */
+interface Mappable {
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+}
+
 
 /**
  * CustomMap class for managing Google Maps instances.
@@ -29,7 +38,7 @@ export class CustomMap {
     });
   }
 
-  addMarker(locationEntity: User | Company): void {
+  addMarker(locationEntity: Mappable): void {
     new google.maps.Marker({
         map: this.googleMap,
         position:{
