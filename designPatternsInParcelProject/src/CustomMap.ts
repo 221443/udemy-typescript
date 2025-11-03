@@ -1,3 +1,6 @@
+import { User } from "./User";
+import { Company } from "./Company";
+
 /**
  * CustomMap class for managing Google Maps instances.
  *
@@ -24,5 +27,20 @@ export class CustomMap {
       zoom: 1,
       center: { lat: 0, lng: 0 },
     });
+  }
+
+  addUserMarker(user: User): void {
+    new google.maps.Marker({
+        map: this.googleMap,
+        position:{
+            lat: user.location.latitude,
+            lng: user.location.longitude
+        }
+    });
+  }
+
+  addCompanyMarker(company: Company): void{
+
+
   }
 }

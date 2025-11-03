@@ -13,7 +13,7 @@ console.log(company);
 
 const user = new User();
 console.log(user);
-console.log("Favorite color is: " + red);
-console.log("Least favorite color is: " + whatever);
 
-const myMap = new CustomMap("map");
+const customMap = new CustomMap("map");
+
+customMap.addUserMarker(user);
