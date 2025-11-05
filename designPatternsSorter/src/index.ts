@@ -8,9 +8,9 @@ class Sorter {
   sort(): void {
     for (var i in this.collection) {
       for (var j in this.collection) {
-        if (this.collection[0 + Number(j)] > this.collection[1 + Number(j)]) {
-          let k = this.collection[0 + Number(j)];
-          let l = this.collection[1 + Number(j)];
+        if (this.collection[0 + Number(j)]! > this.collection[1 + Number(j)]!) {
+          let k = this.collection[0 + Number(j)]!;
+          let l = this.collection[1 + Number(j)]!;
           this.collection[0 + Number(j)] = l;
           this.collection[1 + Number(j)] = k;
         }
