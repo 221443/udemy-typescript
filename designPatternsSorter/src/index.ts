@@ -6,13 +6,14 @@ class Sorter {
   }
 
   sort(): void {
-    for (var i in this.collection) {
-      for (var j in this.collection) {
-        if (this.collection[0 + Number(j)]! > this.collection[1 + Number(j)]!) {
-          let k = this.collection[0 + Number(j)]!;
-          let l = this.collection[1 + Number(j)]!;
-          this.collection[0 + Number(j)] = l;
-          this.collection[1 + Number(j)] = k;
+    const { length } = this.collection;
+    for (let i = 0; i < length; i++) {
+      for (let j = 0; j < length - 1 - i; j++) {
+        if (this.collection[j]! > this.collection[j + 1]!) {
+          const leftHand = this.collection[j]!;
+          const rightHand = this.collection[j + 1]!;
+          this.collection[j] = rightHand;
+          this.collection[j + 1] = leftHand;
         }
       }
     }
@@ -28,3 +29,9 @@ console.log(myArr);
 const mySorter = new Sorter(myArr);
 mySorter.sort();
 console.log(mySorter.collection);
+
+//var stringArr = ["b", "a", "c", "z", "y", "x"];
+//console.log(stringArr);
+//const stringSorter = new Sorter(stringArr);
+//stringSorter.sort();
+//console.log(stringSorter.collection);
