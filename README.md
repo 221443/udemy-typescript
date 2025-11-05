@@ -10,6 +10,11 @@ tsc index.ts
 # run the compiled js code 
 node index.js
 
+# initialisation of the tsc
+tsc --init // after the initialisation you can check the new tsconfig.json file and edit the config of the tsc
+tsc // now no need to specify the file to compile, because the whole rootDir from tsconfig.json is compiled
+tsc -w // sets the tsc into the watch mode, that compiles everytime the change is detected
+
 ## Transpiling = (High → High) Translating between high-level languages
 
 **Examples:** TypeScript → JavaScript, JSX → JavaScript, SASS → CSS
