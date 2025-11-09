@@ -1,3 +1,5 @@
+/// <reference types="google.maps" />
+
 /**
  * Mappable interface to be implemented by any class
  * that can be represented on the map.

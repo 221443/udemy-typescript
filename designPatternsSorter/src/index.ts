@@ -1,59 +1,25 @@
-class Sorter {
-  public collection: (number | string)[] | string;
-
-  constructor(collection: (number | string)[] | string) {
-    this.collection = collection;
-  }
-
-  sort(): void {
-    const { length } = this.collection;
-    for (let i = 0; i < length; i++) {
-      for (let j = 0; j < length - 1 - i; j++) {
-        // All of this only works if collection is number[]
-        if (this.collection instanceof Array) {
-          if (this.collection[j]! > this.collection[j + 1]!) {
-            const leftHand = this.collection[j]!;
-            const rightHand = this.collection[j + 1]!;
-            this.collection[j] = rightHand;
-            this.collection[j + 1] = leftHand;
-          }
-        }
-
-        // All of this only works if collection is string
-        if (typeof this.collection === "string") {
-          const arayed = this.collection.split("");
-          if (arayed[j]! > arayed[j + 1]!) {
-            const leftHand = arayed[j]!;
-            const rightHand = arayed[j + 1]!;
-            arayed[j] = rightHand;
-            arayed[j + 1] = leftHand;
-          }
-          this.collection = arayed.join("");
-        }
-      }
-    }
-  }
-}
-
+import { NumbersCollection } from "./NumbersCollection.js";
+import { Sorter } from "./Sorter.js";
+import { StringCollection } from "./StringCollection.js";
+import { StringArrayCollection } from "./StringArrayCollection.js";
 const createRandomIntArray = (length: number, min: number, max: number): number[] => {
   return Array.from({ length }, () => Math.floor(Math.random() * (max - min + 1)) + min);
 };
 
 var myArr = createRandomIntArray(100, -50, 100);
 console.log(myArr);
-const mySorter = new Sorter(myArr);
+const mySorter = new Sorter(new NumbersCollection(myArr));
 mySorter.sort();
-console.log(mySorter.collection);
+mySorter.collection.printData();
 
-var stringArr = ["b", "a", "c", "z", "y", "x"];
+var stringArr = ["A", "b", "a", "c", "z", "y", "A", "x"];
 console.log(stringArr);
-const stringSorter = new Sorter(stringArr);
+const stringSorter = new Sorter(new StringArrayCollection(stringArr));
 stringSorter.sort();
-console.log(stringSorter.collection);
+stringSorter.collection.printData();
 
-var myString = "aABsdfabczxy";
+var myString = "CaABsdfabczxBy";
 console.log(myString);
-const myStringSorter = new Sorter(myString);
+const myStringSorter = new Sorter(new StringCollection(myString));
 myStringSorter.sort();
-console.log(myStringSorter.collection);
-
+myStringSorter.collection.printData();
