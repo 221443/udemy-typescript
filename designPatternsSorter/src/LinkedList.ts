@@ -19,10 +19,10 @@ export class LinkedList {
   }
 
   get length(): number {
-    let length = 0;
     if (!this.head) {
-      return length;
+      return 0;
     }
+    let length = 1;
     let tail = this.head;
     while (tail.next) {
       tail = tail.next;
@@ -56,7 +56,7 @@ export class LinkedList {
   swap(leftIndex: number, rightIndex: number): void {
     const leftNode = this.at(leftIndex);
     const rightNode = this.at(rightIndex);
-    
+
     const leftHand = leftNode.data;
     leftNode.data = rightNode.data;
     rightNode.data = leftHand;
@@ -71,5 +71,9 @@ export class LinkedList {
       console.log(node.data);
       node = node.next;
     }
+  }
+
+  printData(): void {
+    this.print();
   }
 }
