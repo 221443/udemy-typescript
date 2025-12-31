@@ -1,6 +1,8 @@
-class StringArrayCollection {
+import { Sorter } from "./Sorter.js";
+class StringArrayCollection extends Sorter {
   private data: string[];
   constructor(data: string[]) {
+    super();
     this.data = data;
   }
   public swap(leftIndex: number, rightIndex: number) {

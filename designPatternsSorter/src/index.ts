@@ -4,36 +4,37 @@ import { StringCollection } from "./StringCollection.js";
 import { StringArrayCollection } from "./StringArrayCollection.js";
 import { LinkedList } from "./LinkedList.js";
 
-//const createRandomIntArray = (length: number, min: number, max: number): number[] => {
-//  return Array.from({ length }, () => Math.floor(Math.random() * (max - min + 1)) + min);
-//};
+// NumberCollection test
+const createRandomIntArray = (length: number, min: number, max: number): number[] => {
+  return Array.from({ length }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+};
+var myArr = createRandomIntArray(100, -50, 100);
+console.log(myArr);
+const mySorter = new NumbersCollection(myArr);
+mySorter.sort();
+mySorter.printData();
 
-//var myArr = createRandomIntArray(100, -50, 100);
-//console.log(myArr);
-//const mySorter = new Sorter(new NumbersCollection(myArr));
-//mySorter.sort();
-//mySorter.collection.printData();
+// StringArrayCollection test
+var stringArr = ["A", "b", "a", "c", "z", "y", "A", "x"];
+console.log(stringArr);
+const stringSorter = new StringArrayCollection(stringArr);
+stringSorter.sort();
+stringSorter.printData();
 
-//var stringArr = ["A", "b", "a", "c", "z", "y", "A", "x"];
-//console.log(stringArr);
-//const stringSorter = new Sorter(new StringArrayCollection(stringArr));
-//stringSorter.sort();
-//stringSorter.collection.printData();
+// StringCollection test
+var myString = "CaABsdfabczxBy";
+console.log(myString);
+const myStringSorter = new StringCollection(myString);
+myStringSorter.sort();
+myStringSorter.printData();
 
-//var myString = "CaABsdfabczxBy";
-//console.log(myString);
-//const myStringSorter = new Sorter(new StringCollection(myString));
-//myStringSorter.sort();
-//myStringSorter.collection.printData();
-
+// LinkedList test
 const linkedList = new LinkedList();
 linkedList.add(500);
 linkedList.add(-10);
 linkedList.add(0);
 linkedList.add(-3);
 linkedList.add(4);
-
-const sorter = new Sorter(linkedList);
+const sorter =  new LinkedList();
 sorter.sort();
-
 linkedList.printData();

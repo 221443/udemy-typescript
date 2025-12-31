@@ -1,6 +1,8 @@
-class NumbersCollection {
+import { Sorter } from "./Sorter.js";
+class NumbersCollection extends Sorter {
   private data: number[];
   constructor(data: number[]) {
+    super();
     this.data = data;
   }
 
